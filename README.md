@@ -26,7 +26,7 @@ pip install rasterio scikit-image scipy numpy tifffile tensorflow joblib omniclo
 
 ```bash
 ##run for help
-python -m cli.main
+python -m cli.main -h
 ##run without a watermask file
 python -m cli.main --input /path/to/S2_TOA_GEE.tif --out /path/to/output --cloud-buffer 8
 ##run with a watermask file
