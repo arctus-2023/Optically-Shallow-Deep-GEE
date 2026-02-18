@@ -13,7 +13,7 @@ from models.utility import dialate_mask
 def display_rgb(r, g, b):
     rgb = np.moveaxis(np.asarray([r, g, b]), 0, 2)
     # print(, )
-    rgb = np.astype((rgb - np.nanmin(rgb)) / (np.nanmax(rgb) - np.nanmin(rgb)) * 255, np.uint8)
+    rgb = ((rgb - np.nanmin(rgb)) / (np.nanmax(rgb) - np.nanmin(rgb)) * 255).astype(np.uint8)
     p2, p98 = np.percentile(rgb, (2, 98))  # ignore outliers
     rgb_stretched = exposure.rescale_intensity(rgb, in_range=(p2, p98))
     # print(rgb)
